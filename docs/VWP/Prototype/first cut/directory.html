@@ -1,0 +1,68 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Bagwan</title>
+    <meta name="description" content="The Bagwan">
+
+
+    <link rel="stylesheet" href="./css/directory.css?v=1.0">
+
+</head>
+
+<body>
+    <section class="header">
+        <span class='logo'></span>
+    </section>
+    <section style="padding-left:5%;padding-right:10%; padding-bottom:1%;padding-top:0.5%;" class="contact-cards">
+      <h3>Your Connections</h3>
+      <div class='cards-container' id="contactCardScroller" >
+
+    </section>
+    <h2 style="padding-left:5%;">Organisation</h2>
+    <section>
+    <div id="tree"></div>
+      </section>
+    <script src="./js/directory.js"></script>
+    <script src="./js/blankgraph.js"></script>
+    <script>
+
+window.onload = function () {
+    var chart = new OrgChart(document.getElementById("tree"), {
+        template: "ula",
+        layout: OrgChart.mixed,
+        nodeBinding: {
+            field_0: "name",
+            field_1: "title",
+            img_0: "img"
+        },
+        nodes: [
+            { id: "1", name: "Jack Hill", title: "Hospital Director", email: "jack_hill@bagwan.com", img: "https://balkangraph.com/js/img/1.jpg" },
+            { id: "2", pid: "1", name: "Lexie Cole", title: "Patient Advocacy Services", email: "lexie@bagwan.com", img: "https://balkangraph.com/js/img/2.jpg" },
+            { id: "3", pid: "1", name: "Janae Barrett", title: "Assistant Attorney General", img: "https://balkangraph.com/js/img/3.jpg" },
+            { id: "4", pid: "1", name: "Aaliyah Webb", title: "Human Resources", email: "aaliyah@bagwan.com", img: "https://balkangraph.com/js/img/4.jpg" },
+            { id: "5", pid: "2", name: "Elliot Ross", title: "Special Assistant", img: "https://balkangraph.com/js/img/5.jpg" },
+
+            { id: "8", pid: "3", name: "Nash Ingram", title: "Clinical Services Director", email: "nash@bagwan.com", img: "https://balkangraph.com/js/img/6.jpg" },
+
+            { id: "14", pid: "4", name: "Lucas West", title: "Director of Nursing", img: "https://balkangraph.com/js/img/7.jpg" },
+
+
+        ]
+    });
+    document.getElementById("selectTemplate").addEventListener("change", function () {
+        chart.config.template = this.value;
+        chart.draw();
+    });
+}
+
+
+    </script>
+
+
+</body>
+
+</html>

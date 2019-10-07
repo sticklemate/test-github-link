@@ -1,0 +1,67 @@
+body {
+  font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  font-size: 13px;
+}
+
+* {
+  box-sizing: border-box
+}
+
+.container {
+  height: 100vh;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  padding: 1em 2em 1em 4.5em;
+}
+
+.logo {
+  display: flex;
+  background-image: url(../images/logo3.png);
+  /* background-size: cover; */
+  height: 5.25em;
+  width: 21em;
+}
+.contact-cards {
+  padding: 0 8em;
+
+  background: #ece8e8;
+}
+.cards-container {
+  display: flex;
+  overflow-x: auto;
+  justify-content: stretch;
+}
+
+.card {
+  flex: 0 0 11em;
+  margin: 0 1em;
+}
+.card img{
+display: flex;
+height: 8em;
+}
+.contact-info {
+  background: #ffffff;
+  text-align: center;
+}
+.contact-info p {
+  margin: .1em;
+}
+.contact-info p button {
+  margin: .1em;
+  background: grey;
+  color: #ffffff;
+  border: none;
+}
+.contact-hierarchy {
+  background-image: url(organization.png);
+  height: 50vh;
+  background-repeat: no-repeat;
+}
