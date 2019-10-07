@@ -1,0 +1,103 @@
+head  
+  script.
+   if(sessionStorage.getItem('authState')=== null){
+     window.location.href= "login.html"
+   } else {exit()}
+
+.content
+  .push.mt-5
+
+  .container.p-5.mb-5.page.rounded-lg 
+    
+    legend Food and Fluids record 
+    
+    
+     table(role='table')#tablePreview.table.table-striped.table-hover
+      thead(role='rowgroup')
+        tr(role='row')
+          th.w-15(role='columnheader') Date
+            i.fas.fa-question-circle.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='Select the large triangle to open the calendar and use today’s date.')
+          th.w-10(role='columnheader') Time
+            i.fas.fa-question-circle.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='Enter the hours or minutes input (HH:MM). Use 24 hour time.')
+          th(role='columnheader') Food item
+            i.fas.fa-question-circle.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='List all the food items offered and specify items the resident did not eat.')
+          th(role='columnheader') Amount taken
+            i.fas.fa-question-circle.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='The amount eaten of the total amount of food offered.')
+          th(role='columnheader') Time taken
+            i.fas.fa-question-circle.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='How long it took to eat the amount of food they finally consumed.')
+          th(role='columnheader') Role
+            i.fas.fa-question-circle.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='Your role is set by your login credentials.')
+
+      tbody.food#tableToModify
+        tr(role='row')#rowToClone
+          td(role='cell')
+            input.foodrecord.form-control.form-control-sm(type='date', placeholder='dd/mm/yyyy',min="1990-01-01", max="2040-12-31")
+          td(role='cell')
+            input#time.foodrecord.form-control.form-control-sm(type='text',pattern="\d{1,2}:\d{1,2}",maxlength="5", name='time' placeholder='HH:MM',min='00:00',max='23:59',required="required")
+          td(role='cell')
+            input.foodrecord.form-control.form-control-sm(type='text', placeholder='Enter food item here')
+          td(role='cell')
+            select.foodrecord.align-top.continOption.contrecord.form-control-sm.form-control.d-inline
+                option(disabled='',selected='', value='') select 
+                option  None
+                option  Quarter
+                option  Half
+                option  Three quarter
+                option Full
+            //-   #amountTaken.foodrecord.form-control-sm
+          td(role='cell')
+            select.foodrecord.align-top.continOption.contrecord.form-control-sm.form-control.d-inline
+                option(disabled='',selected='', value='') select 
+                option(value='00:00') 00:00
+                option(value='00:15') 00:15
+                option(value='00:30') 00:30
+                option(value='00:45') 00:45
+                option(value='01:00') 01:00
+                option(value='01:15') 01:15
+                option(value='01:30') 01:30
+                option(value='01:45') 01:45
+                option(value='02:00') 02:00
+           
+            //-  #timeTaken.foodrecord.form-control-sm
+            
+          td(role='cell')
+            input.foodrecord.form-control.form-control-sm(type='text',name='role' value='PCA' disabled='')    
+            
+    //- i.fas.fa-question-circle.btn-sm.pb-3(  data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='Return to the Patient Record menu')
+    a.btn.btn-sm.btn-primary.mr-3(href='patientrecord.html')
+      i.fas.fa-arrow-left 
+      |  Back
+
+    
+    a.btn.btn.btn-sm.btn-primary(onclick='checkInput()')  Download to PDF
+    i.fas.fa-question-circle.btn-sm.pb-3( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='Prints the information you recorded into a document')
+    //a#submit.btn.btn.btn-sm.btn-primary(href='foodrecord.html')  Submit Entries
+    //a#submit.btn.btn.btn-sm.btn-primary Submit Entries
+    //input(type='button', onclick='tableToJson()', value='Submit Entries')
+    a.btn.btn.btn-sm.btn-primary.ml-4( onclick='addRow()') Add row
+    //- span.d-inline-block(tabindex='0' data-toggle='tooltip' title='Creates another row if you are recording more than one meal')
+    i.fas.fa-question-circle.btn-sm.pb-3( data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Creates another row if you are recording more than one meal")
+#exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='errorModalLabel' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title Error message
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        | Please enter all the fields correctly
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+
+#rowModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='rowAlertModalLabel' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#rowModalLabel.modal-title Error message
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        | Row limit exceeded
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+

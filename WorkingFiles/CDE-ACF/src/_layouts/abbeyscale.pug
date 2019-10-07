@@ -1,0 +1,210 @@
+head
+  script.
+   if(sessionStorage.getItem('authState')=== null){
+     window.location.href= "login.html"
+   } else exit()
+
+.content
+  .push.mt-5
+  .container.p-5.mb-5.page.rounded-lg
+ 
+    legend Pain abbey scale
+    #reset
+     table#tablePreviewAbbey.table.table-striped.table-hover
+      thead
+        tr
+          th(scope="col") Date
+            i.fas.fa-question-circle.btn-sm(data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='Select the large triangle to open the calendar and use today’s date.')
+     
+          th(scope="col") Time
+            i.fas.fa-question-circle.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='Enter the hours or minutes input (HH:MM)')
+          th(scope="col") Location
+            i.fas.fa-question-circle.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='Which area of the resident’s body is the pain located')
+          th(scope="col") Verbal/Non-verbal
+            i.fas.fa-question-circle.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='Is the resident able to speak to assist you with your questions')
+          th(scope="col") Comments
+            i.fas.fa-question-circle.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='Record any information which may be of assistance')
+            //-i.fas.fa-question-circle.btn.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='Enter the hours or minutes input (HH:MM)')
+            //-i.fas.fa-question-circle.btn.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='Which area of the resident’s body is the pain located')
+            //-i.fas.fa-question-circle.btn.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='Is the resident able to speak to assist you with your questions')
+            //-i.fas.fa-question-circle.btn.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='Record any information which may be of assistance')
+          //- th xxxx
+          //- th xxxxx
+          //- th Role
+      tbody#tableToModify2
+        tr#rowToClone2(scope="row")
+          td.col.date
+            label.title Date
+            input.abbeyscale.form-control.form-control-sm(type='date', placeholder='dd/mm/yyyy',min="1990-01-01", max="2040-12-31")
+          td.col.time
+            label.title Time
+            input#time.abbeyscale.form-control.form-control-sm(type='text',pattern="\d{1,2}:\d{1,2}",maxlength="5", name='time' placeholder='HH:MM',min='00:00',max='23:00',required="required")
+          td.col.location
+            label.title Location
+            select.abbeyscale.contrecord.form-control-sm.form-control.d-inline
+                option(disabled='',selected='', value='')  select
+                option(value='Generalised') Generalised
+                option(value='Head') Head
+                option(value='Upper torso') Upper torso
+                option(value='Lower torso') Lower torso
+                option(value='Right arm') Right arm
+                option(value='Left arm') Left arm
+                option(value='Right leg') Right leg
+                option(value='Left leg') Left leg
+          td.col.verbal
+            label.title Verbal/Non-verbal
+            select.abbeyscale.align-top.continOption.contrecord.form-control-sm.form-control.d-inline
+                option(disabled='',selected='', value='')  select
+                option(value='Verbal') Verbal
+                 option(value='Non Verbal') Non-verbal
+                
+          td.col.comments
+            label.title Comments
+            textarea.abbeyscale.form-control(name='story')
+            
+            
+          //- td
+          //-   select.abbeyscale.form-control-sm
+          //-       option(disabled='',selected='', value='')  select
+          //-       option(value='None') None
+                
+          //- td
+          //-   select.testselect3.abbeyscale.SelectBoox(multiple=' ',name='test[]')
+          //-       option(value='Shower') Shower
+          //-       option(value='Wash') Wash
+          //-       option(value='Half') Half
+          //-       option(value='Three quarter') Three quarter
+          //-       option(value='Full') Full
+          //- td
+          //-   select.testselect3.abbeyscale.SelectBoox(multiple=' ',name='test[]')
+          //-       option(value='None') 1
+          //-       option(value='2') 2
+          //-       option(value='3') 3
+                
+         
+         
+          table#tablePreviewAbbey.table.table-striped.table-hover
+           thead
+             tr
+               th.vocalisation(scope="col")
+                h3.h6 Vocalisation
+                p.font-weight-normal.small
+                  |  (e.g whimpering,groaning,crying)
+               th.physiological(scope="col")
+                 h3.h6 Physiological change
+                 p.font-weight-normal.small
+                   | (e.g temperature pulse or blood pressure outside normal limits,perspiring,flushing or pallor)
+               th.physical(scope="col") 
+                 h3.h6 Physical change
+                 P.font-weight-normal.small
+                   | (e.g skin tears,pressure areas,arthritis,contractures,previous injuries)
+    
+           tbody#tableToModify2
+             tr#rowToClone2(scope="row")
+               td
+                 label.title Vocalisation
+                  small  (e.g whimpering,groaning,crying)
+                 select.abbeyscale.form-control-sm(name='score[1]')
+                             option(disabled='',selected='', value='')  select
+                             option(value='0') 0 - Absent
+                             option(value='1') 1 - Mild
+                             option(value='2') 2 - Moderate
+                             option(value='3') 3 - Severe
+               td
+                 label.title Physiological change
+                  small  (e.g temperature pulse or blood pressure outside normal limits,perspiring, flushing or pallor)
+                 select.abbeyscale.form-control-sm(name='score[2]')
+                             option(disabled='',selected='', value='')  select
+                             option(value='0') 0 - Absent
+                             option(value='1') 1 - Mild
+                             option(value='2') 2 - Moderate
+                             option(value='3') 3 - Severe  
+               td
+                 label.title Physical change
+                  small (e.g skin tears, pressure areas, arthritis, contractures, previous injuries) 
+                 select.abbeyscale.form-control-sm(name='score[3]')
+                             option(disabled='',selected='', value='')  select
+                             option(value='0') 0 - Absent
+                             option(value='1') 1 - Mild
+                             option(value='2') 2 - Moderate
+                             option(value='3') 3 - Severe
+            
+           table#tablePreviewAbbey.table.table-striped.table-hover
+            thead
+              tr(scope="row")
+                th(scope="col")  
+                  h3.h6 Facial expression
+                  p.font-weight-normal.small
+                    | (e.g looking tense, frowning, grimacing, looking frightened)
+                th(scope="col") 
+                  h3.h6 Change in body language
+                  p.font-weight-normal.small
+                    | (e.g fidgeting, rocking, guarding part of body, withdrawn)
+                th(scope="col") 
+                  h3.h6 Behavioural change
+                  p.font-weight-normal.small
+                    | (e.g increased confusion, refusing to eat, alteration in usual patterns)
+  
+            tbody#tableToModify2
+             tr#rowToClone2
+               td.facial(scope="col")
+                 label.title Facial expression
+                  small  (e.g looking tense, frowning, grimacing, looking frightened) 
+                 select.abbeyscale.form-control-sm(name='score[4]')
+                             option(disabled='',selected='', value='')  select
+                             option(value='0') 0 - Absent
+                             option(value='1') 1 - Mild
+                             option(value='2') 2 - Moderate
+                             option(value='3') 3 - Severe
+               td.change(scope="col")
+                 label.title Change in body language 
+                  small  (e.g fidgeting, rocking, guarding part of body, withdrawn)
+                 select.abbeyscale.form-control-sm(name='score[5]')
+                             option(disabled='',selected='', value='')  select
+                             option(value='0') 0 - Absent
+                             option(value='1') 1 - Mild
+                             option(value='2') 2 - Moderate
+                             option(value='3') 3 - Severe  
+               td.behaviour(scope="col")
+                 label.title Behavioural change
+                  small  (e.g increased confusion, refusing to eat, alteration in usual patterns)
+                 select.abbeyscale.form-control-sm(name='score[6]')
+                             option(disabled='',selected='', value='')  select
+                             option(value='0') 0 - Absent
+                             option(value='1') 1 - Mild
+                             option(value='2') 2 - Moderate
+                             option(value='3') 3 - Severe
+          //- td
+          //-   input.abbeyscale.form-control.form-control-sm(type='text',name='role' value='PCA')     
+    #abb
+    .row
+      .col-12
+        br
+        | #[strong Total Pain Score] 
+        
+        input#total.abbeyscale.form-control-sm(type='text',maxlength='4',size='4',name='total',disabled)
+        i.fas.fa-question-circle.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='This number is automatically generated from the numbers you record above')
+
+        .row.pt-4.position-inherit.float-none
+          a.btn.btn-sm.btn-primary.mr-3(href='patientrecord.html')
+            i.fas.fa-arrow-left
+            |  Back
+          //- a.btn.btn.btn-sm.btn-primary.mr-2(href='patientrecord.html')  Back
+          //- i.fas.fa-question-circle.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='go back to the Patient document page')
+          
+          a.btn.btn.btn-sm.btn-primary.mr-2(onclick='checkInputAbbey()')  Download to PDF
+          i.fas.fa-question-circle.btn-sm( data-container="body" data-toggle="popover",data-trigger="hover",data-placement="top",data-content='Prints the information you recorded into a document')
+              //-a#submit.btn.btn.btn-sm.btn-primary(href='foodrecord.html')  Submit Entries
+              //- input(type='button', onclick='tableToJson()', value='Submit Entries')
+          //- input.btn.btn.btn-sm.btn-primary.mr-2(type='button', onclick='addRowAbbey()', value='Add Row')
+#exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title Error Message
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        | Please fill in all fields.
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-dismiss='modal') Close

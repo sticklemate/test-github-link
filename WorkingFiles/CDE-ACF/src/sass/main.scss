@@ -1,0 +1,380 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.logo {
+    max-height: 80px;
+}
+
+.content {
+    padding: 20px;
+    min-height: 100%;
+    margin: 0 auto -50px;
+}
+
+.footer,
+.push {
+    min-height: 50px;
+}
+
+.form-control-sm {
+    border: 1px solid #ced4da;
+}
+
+.banner-area {
+    background-image: url("../img/agecare.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.homepage {
+    padding: 0 0 50px 0;
+}
+
+.page {
+    background-color: #eee;
+}
+
+.rounded-lg {
+    border-radius: 6px;
+}
+
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+.w-15 {
+    width: 15%;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.header {
+    background-color: #000054;
+    color: #fff;
+}
+
+.footer {
+    color: #9a9a9a;
+    background-color: #414141;
+
+    a:link {
+        color: #fff !important;
+    }
+
+    a:visited {
+        color: #fff;
+    }
+
+    a:active {
+        color: #fff;
+    }
+
+    text-align: center;
+    font-size: 12px;
+    min-height: fit-content;
+}
+
+.input_inline {
+    margin-left: 0;
+    margin-top: auto;
+    margin-right: 1rem;
+    margin-bottom: auto;
+}
+
+.btn-primary {
+    color: #fff !important;
+    background-color: #000054 !important;
+    border-width: 0px !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: rgba(0, 0, 0, .02);
+}
+
+.accordion-toggle {
+    cursor: pointer;
+}
+
+/*
+	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+	*/
+
+@media only screen and (max-width: 992px) {
+
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin: 0 0 1rem 0;
+    }
+
+    tr:nth-child(odd) {
+        background: #ccc;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        /* Now like a table header */
+        //position: absolute;
+        /* Top/left values mimic padding */
+        top: 10px;
+        left: 16px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+
+    /*
+		Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+		*/
+    tbody.food {
+        td:nth-of-type(1):before {
+            content: "Date";
+        }
+
+        td:nth-of-type(2):before {
+            content: "Time";
+        }
+
+        td:nth-of-type(3):before {
+            content: "Food Item";
+        }
+
+        td:nth-of-type(4):before {
+            content: "Amount Taken";
+        }
+
+        td:nth-of-type(5):before {
+            content: "Time Taken";
+        }
+
+        td:nth-of-type(6):before {
+            content: "Role";
+        }
+    }
+
+    tbody.abbey {
+        td:nth-of-type(1):before {
+            content: "Date";
+        }
+
+        td:nth-of-type(2):before {
+            content: "Time";
+        }
+
+        td:nth-of-type(3):before {
+            content: "xxxx";
+        }
+
+        td:nth-of-type(4):before {
+            content: "TextArea";
+        }
+
+        td:nth-of-type(5):before {
+            content: "DropDown";
+        }
+
+        td:nth-of-type(6):before {
+            content: "Multiselect";
+        }
+
+        td:nth-of-type(7):before {
+            content: "Role";
+        }
+
+        .SumoSelect {
+            width: 100%;
+        }
+    }
+
+    tbody.continence {
+        td:nth-of-type(1):before {
+            content: "Time";
+        }
+
+        td:nth-of-type(2):before {
+            content: "Date";
+        }
+
+        td:nth-of-type(3):before {
+            content: "Date";
+        }
+
+        td:nth-of-type(4):before {
+            content: "Date";
+        }
+    }
+
+    tbody.personal {
+        td:nth-of-type(1):before {
+            content: "Date";
+        }
+
+        td:nth-of-type(2):before {
+            content: "Time";
+        }
+
+        td:nth-of-type(3):before {
+            content: "ADL";
+        }
+
+        td:nth-of-type(4):before {
+            content: "Comments";
+        }
+
+        td:nth-of-type(5):before {
+            content: "Role";
+        }
+    }
+
+    tbody.message {
+        td {
+            .title {
+                float: right;
+            }
+        }
+
+        td.hiddenrow:before {
+            display: none;
+        }
+
+        td:nth-of-type(1):before {
+            content: "Mark as read ";
+        }
+
+        td:nth-of-type(2):before {
+            content: "Name";
+        }
+
+        td:nth-of-type(3):before {
+            content: "Subject";
+        }
+
+        td:nth-of-type(4):before {
+            content: "Date";
+        }
+
+        td:nth-of-type(5):before {
+            content: "Time";
+        }
+    }
+}
+
+#tablePreviewAbbey {
+    .SumoSelect {
+        display: block;
+        width: 100%;
+    }
+
+    label.title {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        display: none;
+
+        @media only screen and (max-width: 992px) {
+            display: block;
+        }
+
+    }
+
+}
+
+@media (max-width: 991.98px) { 
+    .date,
+    .time,
+    .location,
+    .verbal,
+    .comments,
+    .vocalisation,
+    .physiological,
+    .physical,
+    .facial,
+    .change,
+    .behaviour {
+        width: 100%
+    }
+}
+
+    @media (min-width: 992px) {
+        .date,
+        .time {
+            width: 15%;
+        }
+
+        .location,
+        .verbal,
+        .comments {
+            width: 23.33%;
+        }
+
+        .vocalisation,
+        .physiological,
+        .physical,
+        .facial,
+        .change,
+        .behaviour {
+            width: 30%;
+        }
+    
+}
+
+tbody.continence {
+
+    //td:nth-of-type(1) { }
+    td:nth-of-type(2) {
+        background: #eeeeee;
+    }
+
+    //td:nth-of-type(3) { }
+    td:nth-of-type(4) {
+        background: #eeeeee;
+    }
+}
+
+.pointer,
+.btn {
+    cursor: pointer;
+}

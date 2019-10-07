@@ -1,0 +1,91 @@
+head  
+  script.
+   if(sessionStorage.getItem('authState')=== null){
+     window.location.href= "login.html"
+   } else exit()
+
+body
+.content
+  .push.mt-5
+  .container.p-5.page.rounded-lg
+    .row.no-gutters
+      .col-12
+        h3 Messageboard
+      
+      //- .form-group.row
+      //-   label.col-2.col-form-label(for='example-datetime-local-input') From date
+      //-   .col-10
+      //-     input#example-datetime-local-input.form-control(type='datetime-local', value='2011-08-19T13:45:00')
+      .col-12
+        
+        form.form-inline.float-right.row
+          .col-6
+            label.sm(for='inlineFormInput') From date:
+            input#inlineFormInput.form-control.mb-2.mr-sm-2.ml-sm-2.form-control-sm(type='text' disabled="")
+          .col-6
+            label.sm(for='inlineFormInputGroup') To date:
+            input#inlineFormInputGroup.form-control.mr-sm-2.ml-sm-2.mb-2.form-control-sm(type='text' disabled="")
+          
+        
+      
+      .row.ml-0.mr-0.mt-0.mb-4.shadow.bg-white.rounded-lg.p-0.col-12
+        // Table
+        table(role='table')#tablePreview.table.table-striped.table-hover.mb-0
+          // Table head
+          thead(role='rowgroup')
+            tr(role='row')
+
+              th(role='columnheader').w-20 Mark as read
+              th(role='columnheader').w-20 Name
+              th(role='columnheader').w-40 Subject
+              th(role='columnheader').w-10 Date
+              th(role='columnheader').w-10 Time
+          // Table head
+          // Table body
+          tbody.message(role='rowgroup')
+            tr.accordion-toggle(data-toggle='collapse',aria-expanded="true", data-target='#demo1',onclick='messageOne()')
+              td.custom-control.custom-checkbox.mx-0.text-center
+                input#customCheck1.custom-control-input.position-relative(type='checkbox')
+                label.custom-control-label(for='customCheck1')
+              td Admin
+              td Message#1
+              td#inbox1
+              td#time1
+            tr
+              td.hiddenRow.p-0(colspan='6')
+                #demo1.accordian-body.collapse.p-4  Mr. Huang has complained people have stolen his property, but he has dementia and we can’t find any evidence this has actually happened. Please make sure you always enter his room with two people so there is a witness to all activity.
+            tr.accordion-toggle(data-toggle='collapse',aria-expanded="true", data-target='#demo2',onclick='messageTwo()')
+
+              td.custom-control.custom-checkbox.mx-0.text-center
+                input#customCheck2.custom-control-input.position-relative(type='checkbox')
+                label.custom-control-label(for='customCheck2')
+              td Admin
+              td Message#2
+              td#inbox2
+              td#time2
+            tr 
+              td.hiddenRow.p-0(colspan='6')
+                #demo2.accordian-body.collapse.p-4  Dear valued staff member,
+                  |
+                  br
+                  |There is a compulsory meeting today in the staff room at 14:00.
+                  | All staff are required to attend.
+
+
+
+      .row.p-0.m-0.float-right
+        a.btn.btn-primary.float-right(onclick='route()')  Proceed
+        //a.btn.btn-primary(href='foodrecord.html')  Add New
+
+
+#messageModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='MessageBoardErrorModal' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#messageModalLabel.modal-title Notice
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        | Please read all messages to proceed
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-dismiss='modal') Close

@@ -1,0 +1,130 @@
+<!DOCTYPE html.no-js(lang='zxx')>
+<head>
+  <!-- Mobile Specific Meta-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="img/fav.png"/>
+  <!-- Author Meta-->
+  <meta name="author" content="colorlib"/>
+  <!-- Meta Description-->
+  <meta name="description" content=""/>
+  <!-- Meta Keyword-->
+  <meta name="keywords" content=""/>
+  <!-- meta character set-->
+  <meta charset="UTF-8"/>
+  <!-- Site Title-->
+  <title>MediGord</title>&#x9;
+  <link rel="stylesheet" type="text/css" href="css/main.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/linearicons.css"/>
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/magnific-popup.css"/>
+  <link rel="stylesheet" type="text/css" href="css/nice-select.css"/>
+  <link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
+  <link rel="stylesheet" type="text/css" href="css/owl.carousel.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.0.2/sumoselect.min.css"/>
+</head>
+<!-- Header-->
+<div class="row p-2 mb-5 ml-0 mr-0 header position-absolute w-100"> 
+  <div class="container"> 
+    <h1>ACME Company</h1>
+  </div>
+</div>
+<div class="content position-relative">
+  <div class="push mt-5"></div>
+  <div class="container p-5 mb-5 page rounded-lg">
+    <legend>Food and Fluids record </legend>
+    <div id="reset">
+      <table class="table table-striped table-hover" role="table" id="tablePreview">
+        <thead role="rowgroup">
+          <tr role="row">
+            <th role="columnheader">Date</th>
+            <th role="columnheader">Time</th>
+            <th role="columnheader">Food Item</th>
+            <th role="columnheader">Amount Taken</th>
+            <th role="columnheader">Time Taken</th>
+            <th role="columnheader">Role</th>
+          </tr>
+        </thead>
+        <tbody class="food" id="tableToModify">
+          <tr role="row" id="rowToClone">
+            <td role="cell">
+              <input class="foodrecord form-control form-control-sm" type="date" placeholder="yyyy/mm/dd" min="1990-01-01" max="2040-12-31"/>
+            </td>
+            <td role="cell">
+              <input class="foodrecord form-control form-control-sm" type="time" placeholder="hh:mm"/>
+            </td>
+            <td role="cell">
+              <input class="foodrecord form-control form-control-sm" type="text" placeholder="Enter Food Item here"/>
+            </td>
+            <td role="cell">
+              <select class="foodrecord form-control-sm" id="amountTaken">
+                <option disabled="" selected="" value=""> select</option>
+                <option value="None">None</option>
+                <option value="Quarter">Quarter</option>
+                <option value="Half">Half</option>
+                <option value="Three quarter">Three quarter</option>
+                <option value="Full">Full</option>
+              </select>
+            </td>
+            <td role="cell">
+              <select class="foodrecord form-control-sm" id="timeTaken">
+                <option disabled="" selected="" value=""> select</option>
+                <option value="00:00">00:00</option>
+                <option value="00:15">00:15</option>
+                <option value="00:30">00:30</option>
+                <option value="00:45">00:45</option>
+                <option value="01:00">01:00</option>
+                <option value="01:15">01:15</option>
+                <option value="01:30">01:30</option>
+                <option value="01:45">01:45</option>
+                <option value="02:00">02:00</option>
+              </select>
+            </td>
+            <td role="cell">
+              <input class="foodrecord form-control form-control-sm" type="text" name="role" value="PCA"/>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div><a class="btn btn btn-sm btn-primary mr-2" href="patientrecord.html"> Back</a><a class="btn btn btn-sm btn-primary mr-2" onclick="pdf()"> Print PDF</a>
+    <!--a#submit.btn.btn.btn-sm.btn-primary(href='foodrecord.html')  Submit Entries-->
+    <!--a#submit.btn.btn.btn-sm.btn-primary Submit Entries-->
+    <!--input(type='button', onclick='tableToJson()', value='Submit Entries')-->
+    <input class="btn btn btn-sm btn-primary mr-2" type="button" onclick="addRow()" value="Add Row"/>
+  </div>
+</div>
+<!--footer-->
+<div id="footer">
+  <div class="container-fluid">
+    <div class="row">   
+      <div class="col">
+        <!--span footer-->
+      </div>
+    </div>
+  </div>
+</div>
+<!--Footer scripts, delete as required-->
+<script src="js/vendor/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/easing.min.js"></script>
+<script src="js/hoverIntent.js"></script>
+<script src="js/superfish.min.js"></script>
+<script src="js/jquery.ajaxchimp.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/mail-script.js"></script>
+<script src="js/main.js"></script>
+<script src="js/script.js">   </script>
+<script src="js/save_localstorage.js">   </script>
+<script src="js/personalcare.js"> </script>
+<script src="js/continence.js"> </script>
+<script src="https://unpkg.com/jspdf@1.5.3/dist/jspdf.min.js"> </script>
+<script src="https://unpkg.com/jspdf-autotable@3.1.3/dist/jspdf.plugin.autotable.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.0.2/jquery.sumoselect.min.js"></script>
+<footer class="footer p-3 bottom">Copyright @ ACME 2019 All right reserved. Address: Building 11, 127 Latrobe Street, Melbourne. Email:<a href="emailto:support@acmecompany.com.au">support@acmecompany.com.au</a>. Tel:<a href="tel:+6135689746">+61 03 568 9746</a></footer>

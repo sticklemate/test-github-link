@@ -1,0 +1,18 @@
+head  
+  script.
+   if(sessionStorage.getItem('authState')=== null){
+     window.location.href= "login.html"
+   } else exit()
+
+.content
+  .push.mt-5
+  .container.p-5.mb-5.page.rounded-lg
+    .row
+      h3.pb-4.pl-3 Resident record menu
+
+    .btn-group-vertical.w-100.p-0.bg-white.shadow.rounded
+      a.btn.btn-outline-secondary.border-light.text-left.p-4(href='foodrecord.html')  Food & Fluids
+      a.btn.btn-outline-secondary.border-light.text-left.p-4(href='continence.html')  Urinary Continence
+      a.btn.btn-outline-secondary.border-light.text-left.p-4(href='personalcare.html')  Personal Care
+      a.btn.btn-outline-secondary.border-light.text-left.p-4(href='abbeyscale.html')  Pain Abbey Scale
+    .push

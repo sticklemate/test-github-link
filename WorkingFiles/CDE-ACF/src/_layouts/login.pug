@@ -1,0 +1,81 @@
+head  
+  script.
+   if(sessionStorage.getItem('authState')=== 'authenticated'){
+     sessionStorage.removeItem('authState')
+   } else exit()
+
+
+.content.banner-area.p-0
+  .row.homepage.m-0.h-100
+    .p-0.col-md-6.banner-area.d-none.d-lg-block.d-md-block
+    .p-0.col-md-6.mx-auto.bg-white
+      .p-0.col-9.col-sm-6.col-md-8.col-lg-6.mx-auto.container
+        .row.pt-5.pl-0
+          .col-12.p-0.mx-0.text-center
+            img.w-75(src='img/logo.png' alt="Bagwan Aged Care Facility") 
+          .col-12.p-0
+            //-h4.text-center.pt-1.mx-auto Bagwan Aged Care Facility
+           
+        form.form-horizontal.row.mt-3
+              fieldset.col-12.p-0
+                  // Form Name
+                  
+                  // Text input
+                  .form-group
+                    label.col-12.p-0.control-label(for='Username') Login with your username
+                    |   
+                    |    
+                    .col-12.p-0
+                      input#username.form-control.input-md(name='Username', type='text',aria-describedby="emailHelp", placeholder='Enter your username', required='',autocomplete='off')
+                    
+                  // Text input
+                  .form-group
+                    label.col-12.p-0.control-label(for='password') Password
+                    |   
+                    |   
+                    .col-12.p-0
+                      input#password.form-control.input-md(name='password', type='password',aria-describedby="password", placeholder='Enter your password',autocomplete='off')
+                    a#login.btn.w-100.mt-4.btn-primary(onclick='login()') Log in
+                    br
+                    .col-12.text-center
+                      a(href= '#' onclick='loginInfo();return false;') Forgot password
+
+
+#loginModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='loginModal' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#loginModalLabel.modal-title Login details
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        | Your Username is: 'PCAstudent'
+        br
+        | Password is:'C4DE_learn'
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+
+#loginErrModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='loginErrorModal' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#loginErrModal.modal-title Login error
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        | Login credentials cannot be empty.
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+
+#detailModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='logincredentialError' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#detailModal.modal-title Login error
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        | Incorrect username or password.
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+
